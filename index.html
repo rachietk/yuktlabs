@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -17,18 +17,6 @@
   --ac2:#ff6b45;
   color-scheme:light;
   box-sizing:border-box;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#000000;
-    --bg2:#0b0b0d;
-    --ink:#f5f5f7;
-    --mut:#9a9aa2;
-    --line:#1f1f24;
-    --ac:#2fd3b8;
-    --ac2:#ff8a68;
-    color-scheme:dark;
-  }
 }
 :root[data-theme="dark"]{
   --bg:#000000;
@@ -110,7 +98,6 @@ header{
   border-bottom:1px solid var(--line);
 }
 :root[data-theme="dark"] header{background:rgba(0,0,0,.9)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) header{background:rgba(0,0,0,.9)}}
 nav{display:flex;align-items:center;justify-content:space-between;height:72px;position:relative;z-index:115}
 .logo{display:flex;align-items:center;gap:11px;position:relative;z-index:120}
 .logo b{font-size:23px;font-weight:700}
@@ -1005,7 +992,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:56px 0 28p
     var thBtn=$("#th");
     if(!thBtn)return;
     var r=document.documentElement;
-    var isDark=r.dataset.theme?r.dataset.theme==="dark":window.matchMedia("(prefers-color-scheme:dark)").matches;
+    var isDark=r.dataset.theme==="dark";
     thBtn.innerHTML=isDark
       ?'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>'
       :'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>';
@@ -1014,7 +1001,7 @@ footer{background:var(--bg2);border-top:1px solid var(--line);padding:56px 0 28p
 
   if($("#th"))$("#th").onclick=function(){
     var r=document.documentElement;
-    var d=r.dataset.theme?r.dataset.theme==="dark":window.matchMedia("(prefers-color-scheme:dark)").matches;
+    var d=r.dataset.theme==="dark";
     r.dataset.theme=d?"light":"dark";
     this.classList.add("spin");
     var self=this;
