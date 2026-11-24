@@ -700,8 +700,6 @@ export default function App() {
             </div>
 
             <div style={{ borderColor: "var(--line)", color: "var(--mut)" }} className="mt-8 sm:mt-9 pt-4 sm:pt-5 border-t flex items-center gap-2.5 text-xs sm:text-sm">
-              <Sparkles style={{ color: "var(--ac)" }} className="w-4 h-4 shrink-0" />
-              <span>Scroll down to see the service arch smoothly reverse anticlockwise.</span>
             </div>
           </div>
 
