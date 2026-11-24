@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #f6f7f5;
+  --bg2: #eceeeb;
+  --ink: #0f1210;
+  --mut: #5d645f;
+  --line: #dde1dd;
+  --ac: #00927d;
+  --ac2: #ff6b45;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --bg2: #0b0b0d;
+  --ink: #f5f5f7;
+  --mut: #9a9aa2;
+  --line: #1f1f24;
+  --ac: #2fd3b8;
+  --ac2: #ff8a68;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font: 400 17px/1.6 "DM Sans", system-ui, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Marquee & Shimmer Keyframes */
+@keyframes mq {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: mq 30s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+.launch-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--ac) 18%, transparent), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3.4s infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ac2) 65%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+.pulse-dot {
+  animation: pulseRing 2s infinite;
+}
+
+/* Tactile Pill Buttons */
+.btn-tactile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 15.5px;
+  border: 1.5px solid var(--ink);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 94%, #fff), var(--bg2));
+  color: var(--ink);
+  box-shadow: 0 2px 6px rgba(15, 18, 16, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+}
+.btn-tactile:hover {
+  transform: translateY(-2.5px);
+  box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--ac) 38%, rgba(0, 0, 0, 0.25));
+  border-color: var(--ac);
+}
+.btn-tactile:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn-primary {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--ink) 88%, var(--ac)), var(--ink));
+  color: var(--bg);
+  border-color: var(--ink);
+  box-shadow: 0 8px 20px -8px color-mix(in srgb, var(--ink) 55%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+.btn-primary:hover {
+  background: linear-gradient(180deg, var(--ac), color-mix(in srgb, var(--ac) 82%, var(--ink)));
+  border-color: var(--ac);
+  color: #ffffff;
+}
