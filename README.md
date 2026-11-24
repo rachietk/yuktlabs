@@ -1,7 +1,6 @@
 # Yukt Labs (React + Tailwind CSS + Framer Motion)
 
-## Setup & Run
-
+## Quick Start
 ```bash
 npm install
 npm run dev
